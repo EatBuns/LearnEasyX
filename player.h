@@ -30,9 +30,10 @@ private:
 	Animation peashooter_run_left_animation;
 	Animation* current_Animation = nullptr;
 
-
 	physical_sim phy;
 	DIRECTION direct;
+
+	PVZ::POINT m_point;
 	bool jumponce = true;
 };
 

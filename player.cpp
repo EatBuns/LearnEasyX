@@ -17,6 +17,9 @@ void Player::on_enter()
 	peashooter_run_left_animation.setInterval(70);
 
 	current_Animation = &peashooter_idle_right_animation;
+
+	phy.setHspeed(0);
+	phy.setVspeed(0);
 }
 
 void Player::on_update(int delta)
@@ -34,14 +37,12 @@ void Player::on_update(int delta)
 	case DIRECTION::UP:
 		if (jumponce)
 		{
-			
 			jumponce = false;
 		}
 		break;
 	}
-	
-	
-	
+
+	phy.calcFreeFall(m_point.x, m_point.y);
 }
 
 void Player::on_draw(const camera& cm, int x, int y)
